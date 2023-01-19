@@ -45,10 +45,14 @@ func main() {
 	for _, n := range NamespaceList.Items {
 		fmt.Println("--- namespace", n.Name, "---")
 
-		deployments, err := clientset.AppsV1().Deployments(n.Name).List(ctx, metav1.ListOptions{})
+		pods, err := clientset.CoreV1().Pods(n.Name).List(ctx, metav1.ListOptions{})
 		fmt.Println("---Deployments from namespace---")
-		for _, deployment := range deployments.Items {
-			fmt.Println(deployment.Name)
+		if err != nil {
+			fmt.Println("error:pod loop in namespaces")
+
+		}
+		for _, pod := range pods.Items {
+			fmt.Println(pod.Name)
 
 		}
 	}
