@@ -12,7 +12,8 @@ func main() {
 	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
 	if err != nil {
 		//handle error
+		fmt.Println("error")
 
 	}
-	fmt.Println(config)
+	fmt.Println("OK", config)
 }
