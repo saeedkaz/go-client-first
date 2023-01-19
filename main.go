@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	flag.String("kubeconfig", "~/.kube/config", "location to you config file")
-	config, err := clientcmd.BuildConfigFromlogs("", kubeconfig)
+	kubeconfig := flag.String("kubeconfig", "~/.kube/config", "location to you config file")
+	config, err := clientcmd.BuildConfigFromFlags("", kubeconfig)
 	if err != nil {
 		//handle error
 
