@@ -34,7 +34,7 @@ func main() {
 
 	}
 
-	deployments, err := clientset.AppV1().Deployments("default").List(ctx, metav1.ListOptions{})
+	deployments, err := clientset.AppsV1().Deployments("default").List(ctx, metav1.ListOptions{})
 	fmt.Println("---Deployments from default namespace---")
 	for _, deployment := range deployments.Items {
 		fmt.Println(deployment.Name)
