@@ -67,13 +67,14 @@ func main() {
 		//fmt.Println("namespace:", n.Name)
 
 		pods, err := clientset.CoreV1().Pods(n.Name).List(ctx, metav1.ListOptions{})
+		fmt.Println(pods)
 		//fmt.Println("---Pods from namespace:", n.Name, "---")
 		if err != nil {
 			fmt.Println("error:pod loop in namespaces")
 
 		}
-
-		if len(pods) == 0 {
+		var podscount = len(pods)
+		if len(podscount) == 0 {
 			fmt.Println("namespace", n.Name, "is empty, delete it!!!!!!!!!!!!!!!!!!!!!!!!!!")
 		}
 	}
