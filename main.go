@@ -74,7 +74,7 @@ func main() {
 
 		}
 		var podscount = len(pods.Items)
-		if len(podscount) == 0 {
+		if podscount == 0 {
 			fmt.Println("namespace", n.Name, "is empty, delete it!!!!!!!!!!!!!!!!!!!!!!!!!!")
 		}
 	}
