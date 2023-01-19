@@ -46,7 +46,7 @@ func main() {
 		fmt.Println("--- namespace", n.Name, "---")
 
 		pods, err := clientset.CoreV1().Pods(n.Name).List(ctx, metav1.ListOptions{})
-		fmt.Println("---Deployments from namespace---")
+		fmt.Println("---Pods from namespace:", n.Name, "---")
 		if err != nil {
 			fmt.Println("error:pod loop in namespaces")
 
