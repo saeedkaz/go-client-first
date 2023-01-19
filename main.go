@@ -40,7 +40,7 @@ func main() {
 		fmt.Println(deployment.Name)
 
 	}
-	fmt.Println("---Namespaces---")
+	fmt.Println("------Namespaces------")
 	NamespaceList, err := clientset.CoreV1().Namespaces().List(ctx, metav1.ListOptions{})
 	for _, n := range NamespaceList.Items {
 		//fmt.Println("namespace:", n.Name)
@@ -52,7 +52,8 @@ func main() {
 
 		}
 		podcount := 0
-		for _, pod := range pods.Items {
+		//	for _, pod := range pods.Items {
+		for _, _ := range pods.Items {
 			//	fmt.Println(pod.Name)
 			podcount++
 		}
