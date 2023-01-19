@@ -27,6 +27,8 @@ func main() {
 		fmt.Println("error:getpodlist")
 
 	}
+	for i := 0; i < len(pods); i++ {
+		fmt.Println("OK", pods[i])
 
-	fmt.Println("OK", pods)
+	}
 }
