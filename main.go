@@ -40,7 +40,7 @@ func main() {
 		fmt.Println(deployment.Name)
 
 	}
-	NamespaceList, err := clientset.CoreV1().Namespaces("").List(context.TODO(), metav1.ListOptions{})
+	NamespaceList, err := clientset.CoreV1().Namespaces().List(ctx, metav1.ListOptions{})
 	for _, n := range NamespaceList.Items {
 		fmt.Println(n.Name)
 	}
