@@ -43,7 +43,14 @@ func main() {
 	fmt.Println("---Namespaces---")
 	NamespaceList, err := clientset.CoreV1().Namespaces().List(ctx, metav1.ListOptions{})
 	for _, n := range NamespaceList.Items {
-		fmt.Println(n.Name)
+		fmt.Println("--- namespace", n.Name, "---")
+
+		deployments, err := clientset.AppsV1().Deployments(n.Name).List(ctx, metav1.ListOptions{})
+		fmt.Println("---Deployments from namespace---")
+		for _, deployment := range deployments.Items {
+			fmt.Println(deployment.Name)
+
+		}
 	}
 
 }
