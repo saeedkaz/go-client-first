@@ -73,7 +73,7 @@ func main() {
 			fmt.Println("error:pod loop in namespaces")
 
 		}
-		var podscount = len(pods)
+		var podscount = len(pods.Items)
 		if len(podscount) == 0 {
 			fmt.Println("namespace", n.Name, "is empty, delete it!!!!!!!!!!!!!!!!!!!!!!!!!!")
 		}
