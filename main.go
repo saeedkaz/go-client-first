@@ -22,7 +22,7 @@ func main() {
 	if err != nil {
 		fmt.Println("error")
 	}
-	pods, err := clientset.CoreV1().Pods("default").List(context.Background(), metav1.ListOptions{})
+	pods, err := clientset.CoreV1().Pods().List(context.Background(), metav1.ListOptions{})
 	if err != nil {
 		fmt.Println("error:getpodlist")
 
