@@ -4,6 +4,8 @@ import (
 	"flag"
 	"fmt"
 
+	"k8s.io/client-go/kubernetes"
+
 	"k8s.io/client-go/tools/clientcmd"
 )
 
@@ -15,5 +17,10 @@ func main() {
 		fmt.Println("error")
 
 	}
-	fmt.Println("OK", config)
+	clientset, err := kubernetes.NewForConfig(config)
+	if err != nil {
+		fmt.Println("error")
+	}
+
+	fmt.Println("OK", clientset)
 }
