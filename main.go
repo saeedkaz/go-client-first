@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"k8s.io/client-go/tools/clientcmd"
+	"k8s.io/client-go/tools/clientcmd@v0.23.0"
 )
 
 func main() {
