@@ -22,14 +22,23 @@ func main() {
 	if err != nil {
 		fmt.Println("error")
 	}
-	pods, err := clientset.CoreV1().Pods("default").List(context.Background(), metav1.ListOptions{})
+	ctx := context.Background()
+	pods, err := clientset.CoreV1().Pods("default").List(ctx, metav1.ListOptions{})
 	if err != nil {
 		fmt.Println("error:getpodlist")
 
 	}
-	fmt.Println("Pods from default namespace")
+	fmt.Println("---Pods from default namespace---")
 	for _, pod := range pods.Items {
-		fmt.Printf("%s", pod.Name)
+		fmt.Println(pod.Name)
 
 	}
+
+	deployments, err := clientset.AppV1().Deployments("default").List(ctx, metav1.ListOptions{})
+	fmt.Println("---Deployments from default namespace---")
+	for _, deployment := range deployments.Items {
+		fmt.Println(deployment.Name)
+
+	}
+
 }
