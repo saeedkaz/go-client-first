@@ -29,7 +29,7 @@ func main() {
 	}
 	fmt.Println("Pods from default namespace")
 	for _, pod := range pods.Items {
-		fmt.Println("%s", pod.Name)
+		fmt.Printf("%s", pod.Name)
 
 	}
 }
