@@ -1,11 +1,12 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 
+	metav1 "k8s.io/client-go/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
-
 	"k8s.io/client-go/tools/clientcmd"
 )
 
@@ -21,6 +22,11 @@ func main() {
 	if err != nil {
 		fmt.Println("error")
 	}
+	pods, err := clientset.CoreV1().Pods("default").List(context.Background(), metav1.Listoptions{})
+	if err != nil {
+		fmt.Println("error:getpodlist")
 
-	fmt.Println("OK", clientset)
+	}
+
+	fmt.Println("OK", pods)
 }
